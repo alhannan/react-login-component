@@ -18,6 +18,11 @@ class LoginForm extends React.Component {
         };
     }
 
+    handleBlur = (field) => (evt) => {
+        this.setState({
+            touched: { ...this.state.touched, [field]: true },
+        });
+    }
 
     handleChange = (field) => (event) => {
         this.setState({
@@ -45,9 +50,6 @@ class LoginForm extends React.Component {
                 emailRegex.test(this.state.email) &&
                 passwordRegex.test(this.state.password)
             );
-
-
-
     };
 
     emailValidation = () => {
@@ -86,11 +88,6 @@ class LoginForm extends React.Component {
         else return;
     }
 
-    handleBlur = (field) => (evt) => {
-        this.setState({
-            touched: { ...this.state.touched, [field]: true },
-        });
-    }
 
     render() {
         const buttonDisabled = this.inputValidation() ? "" : "disabled";

@@ -42,11 +42,8 @@ class App extends React.Component {
       body: JSON.stringify({ email: username, password: pwd })
     }).then(
       function (response) {
-
         response.json().then(function (data) {
-
           console.log(data);
-
         });
       }
     )
